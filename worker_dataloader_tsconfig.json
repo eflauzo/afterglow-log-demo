@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "outDir": "./stage/worker_dataloader",
+        "sourceMap": true,
+        "target": "ES6",
+        "moduleResolution": "node",
+        "declaration": true,
+        "declarationDir": "./stage/main",
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+      "./src/worker_dataloader.ts",
+      "./src/lib.webworker.d.ts",
+      "./typings/globals/wampy/index.d.ts"
+    ]
+
+}

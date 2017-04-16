@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "outDir": "./stage/main",
+        "sourceMap": true,
+        "target": "ES6",
+        "moduleResolution": "node",
+        "declaration": true,
+        "declarationDir": "./stage/main"
+    },
+    "include": [
+      "./src/main.ts"
+    ]
+
+}
