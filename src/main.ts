@@ -42,7 +42,7 @@ import {
   CxLogPlot,
   CxLogDataProvider,
   CxCurveData
-} from "cathode"
+} from "afterglow"
 
 import {
   DataManager
