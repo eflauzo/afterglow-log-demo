@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/6a7e086b91f8c8b3ab8913e0f836590d95aea15d/wampy/index.d.ts",
+    "raw": "registry:dt/wampy#3.0.0+20170206112654",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/6a7e086b91f8c8b3ab8913e0f836590d95aea15d/wampy/index.d.ts"
+  }
+}
