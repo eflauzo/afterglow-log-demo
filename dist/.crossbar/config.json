@@ -53,7 +53,7 @@
             "type": "container",
             "options": {
                 "pythonpath": [
-                    "/app"
+                    "/Users/eflauzo/project/afterglow-log-demo/dist"
                 ]
             },
             "components": [
