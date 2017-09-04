@@ -40,7 +40,7 @@
                     "paths": {
                         "/": {
                             "type": "static",
-                            "directory": "/app"
+                            "directory": "/workspace/dist"
                         },
                         "ws": {
                             "type": "websocket"
@@ -53,7 +53,7 @@
             "type": "container",
             "options": {
                 "pythonpath": [
-                    "/Users/eflauzo/project/afterglow-log-demo/dist"
+                    "/workspace/dist"
                 ]
             },
             "components": [

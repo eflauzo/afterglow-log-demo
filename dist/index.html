@@ -1,0 +1,125 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+
+  <!--
+  <script src="babel-browser-build.js"></script>
+  <script src="browser-es-module-loader.js"></script>
+  -->
+
+
+</head>
+<body>
+
+
+
+
+  <canvas id="screen01" style="border: solid; height: 90vh; width: 90vw; display: block;"></canvas>
+  <script src="main.js"></script>
+
+
+  <script>
+      // demonstration of visualization and selection using cathode structure
+
+      console.log("window!", window)
+
+      /*
+      import {CxDisplay,
+        CxNode,
+        CxVisualizerColorArray,
+        CxGeometry,
+        CxNodePayloadViewport,
+        CxNodePayloadPerspective,
+        CxNodePayloadTransform,
+        CxNodePayloadInteractive,
+        CxNodePayloadName,
+        CxNameManager,
+        CxScene,
+      } from "logplot.js"
+
+      class HelloWorldTriangle {
+
+        preorder(context) {
+        }
+
+
+        vertices(context) {
+
+          return new Float32Array([
+             0.0,  1.0, 0.0,
+            -1.0, -1.0, 0.0,
+             1.0, -1.0, 0.0,
+          ]);
+        }
+
+        colors(context) {
+          return new Float32Array([
+             1.0, 0.0, 0.0, 1.0,
+             0.0, 1.0, 0.0, 1.0,
+             0.0, 0.0, 1.0, 1.0,
+          ]);
+        }
+
+      }
+
+      //
+      //     root
+      //       |
+      //       - interactive
+      //       \    |
+      //        \---- Viewport
+      //               |
+      //               - perspective projection node
+      //                   |
+      //                   |
+      //                   ----- translate
+      //                             |
+      //                             - Name
+      //                                  |
+      //                                - Visualizer - HelloWorldTriangle
+      //
+      //
+      var scene = new CxScene()
+
+      var display = new CxDisplay("screen01");
+
+      let canva = document.getElementById("screen01");
+
+      var interactive_payload = new CxNodePayloadInteractive(canva, scene);
+
+      var interactive_node = new CxNode([interactive_payload])
+
+      var viewport_node = new CxNode([new CxNodePayloadViewport()])
+
+      var perspective_node = new CxNode([new CxNodePayloadPerspective()])
+
+      var name_node = new CxNode([new CxNodePayloadName(4)])
+
+      var transform = new CxNodePayloadTransform()
+      transform.translate = [ -1.7, 0.9, -5.0]
+
+      var transform_node = new CxNode([transform])
+
+      var visualizer_node = new CxNode([
+          new CxVisualizerColorArray(new HelloWorldTriangle())
+        ]
+      )
+
+      var root = new CxNode([]);
+      scene.root = root;
+
+      root.items.push(interactive_node)
+      root.items.push(viewport_node)
+      interactive_node.items.push(viewport_node)
+      viewport_node.items.push(perspective_node)
+      perspective_node.items.push(transform_node)
+      transform_node.items.push(name_node)
+      name_node.items.push(visualizer_node)
+
+    display.start(scene)
+    */
+
+  </script>
+
+</body>
+</html>
