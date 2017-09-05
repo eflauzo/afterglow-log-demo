@@ -132,9 +132,8 @@ class RemoteDataManager extends DataManager {
     }
 
     start_comm() {
-
         this.ws = new Wampy(
-            'ws://127.0.0.1:8080/ws', {
+            'ws://127.0.0.1:7777/ws', {
                 realm: 'realm1',
                 ws: WebSocket,
                 onConnect: () => {

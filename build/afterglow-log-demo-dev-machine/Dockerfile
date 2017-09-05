@@ -9,7 +9,8 @@ RUN apt-get install -y \
   python-pip \
   nodejs \
   npm \
-  nodejs-legacy
+  nodejs-legacy \
+  expect
 
 RUN npm install -g typescript
 

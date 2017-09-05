@@ -1,12 +1,17 @@
-import os
-import logging
 import argparse
+import logging
+import os
+import sys
+import webbrowser
 
 import docker
 
 
 parser = argparse.ArgumentParser(description='Clean build of afterblow-log-demo-dev')
 parser.add_argument('--force', action='store_true')
+parser.add_argument('--build', action='store_true')
+parser.add_argument('--run', action='store_true')
+
 args = parser.parse_args()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -42,13 +47,34 @@ ports = {
     7777: 7777
 }
 
-print "x"
+def passively_run_command(command, workdir):
+    container = client.containers.run(
+        image=AFTERGLOW_LOG_DEMO_DEV_IMAGE,
+        command=command,
+        ports=ports,
+        volumes=volumes,
+        detach=True,
+        working_dir=workdir
+    )
+    try:
+        for log in container.logs(stdout=True, stderr=True, stream=True):#, follow=False):
+            sys.stdout.write(log)
+    except KeyboardInterrupt as e:
+        container.kill()
+        raise
+    except Exception as e:
+        container.kill()
+        raise
+    print "Done..."
 
-response = client.containers.run(
-    image=AFTERGLOW_LOG_DEMO_DEV_IMAGE,
-    command='bash ./build/build_and_run.sh',
-    ports=ports,
-    volumes=volumes
-)
 
-print response
+if args.build:
+    print 'Updating packages...'
+    passively_run_command('unbuffer npm install', '/workspace')
+
+    print "Building..."
+    passively_run_command('unbuffer npm run build', '/workspace')
+
+if args.run:
+    print 'Running...'
+    passively_run_command('unbuffer crossbar start', '/workspace/dist')

@@ -26,6 +26,7 @@
 #
 ###############################################################################
 
+import sys
 import math
 import time
 
@@ -36,14 +37,32 @@ from autobahn.twisted.util import sleep
 from autobahn.twisted.wamp import ApplicationSession
 from autobahn.wamp.exception import ApplicationError
 
+from twisted.logger import (
+    eventsFromJSONLogFile, textFileLogObserver
+)
 
+
+output = textFileLogObserver(sys.stdout)
+
+#import logging
+#import logging.handlers
+#logger = logging.getLogger("")
+#logger.setLevel(logging.DEBUG)
+#handler = logging.handlers.RotatingFileHandler(#
+#     LOGFILE, maxBytes=(1048576*5), backupCount=7
+# )
+# formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+# handler.setFormatter(formatter)
+# logger.addHandler(handler)
+
+print "XXXX"
 class AppSession(ApplicationSession):
 
-    log = Logger()
+    log = Logger(observer=output)
 
     @inlineCallbacks
     def onJoin(self, details):
-
+        print "!!!!"
         # SUBSCRIBE to a topic and receive events
         #
         def onhello(msg):
@@ -70,14 +89,19 @@ class AppSession(ApplicationSession):
         reg = yield self.register(get_range, 'cathode.get_range')
         self.log.info("procedure get_range() registered")
 
-
+        print "XXX"
+        start = time.time()
         while True:
+            #tm = time.time()
+            x = time.time()
+            #tm = x - start + 500.0
             tm = time.time()
             valueA = math.sin(tm / 10.0 * 3.14)
             valueB = math.sin(tm / 20.0 * 3.14)
             valueC = math.sin(tm / 25.0 * 3.14)
 
             #print "XXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            print "publishing ", tm
             yield self.publish('realtime.data_A', [tm, valueA])
             yield self.publish('realtime.data_B', [tm, valueB])
             yield self.publish('realtime.data_C', [tm, valueC])
